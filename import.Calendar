@@ -1,0 +1,60 @@
+import java.util.Calendar;
+import java.util.Scanner;
+
+public class CalculaIdade {
+
+	public static void main(String[] args) {
+
+		Scanner entrada = new Scanner(System.in);
+
+		int idade;
+		int ano;
+		int anoAtual;
+		int opcao;
+		int anoNasceu;
+		int suaIdade;
+//=====================================================================================================================================================
+		System.out.println("\n\t<<< Bem Vindo ao Descubra Sua Idade ou Ano em que Nasceu! >>>\n");
+		do {
+			System.out.println("\t== Menu Inicial ==\n");
+			System.out.println("0 - Sair");
+			System.out.println("1 - Quero Saber Minha Idade");
+			System.out.println("2 - Quero Saber o Ano em que Nasci");
+			System.out.print("\nOpção: ");
+			opcao = entrada.nextInt();
+
+			if(opcao == 1) {
+				System.out.println("\n\tQuero Saber Minha Idade\n");
+				System.out.print("Digite os 4 Digitos do Ano em que Nasceu: ");
+				anoNasceu = entrada.nextInt();
+
+				Calendar calendario = Calendar.getInstance();
+				anoAtual = calendario.get(Calendar.YEAR);
+				idade = anoAtual - anoNasceu;
+
+				System.out.println("Sua Idade é: " + idade + "\n");
+			}
+			if(opcao == 2) {
+				System.out.println("\n\tQuero Saber o Ano em que Nasci\n");
+				System.out.print("Digite Sua Idade: ");
+				suaIdade = entrada.nextInt();
+
+				Calendar calendario = Calendar.getInstance();
+				anoAtual = calendario.get(Calendar.YEAR);
+				ano = anoAtual - suaIdade;
+
+				System.out.println("O Ano em que Nasceu é: " + ano + "\n");
+			}
+			else {
+				if(opcao < 0 || opcao > 2) {
+					System.out.println("\n\t#### Opção Invalida ####\n");
+				}
+			}
+
+		}while(opcao != 0);
+		System.out.println("\n<<<< Até a Proxima! >>>");
+//=====================================================================================================================================================
+		entrada.close();
+	}
+
+}
